@@ -7,7 +7,7 @@
         "url": "https://github.com/ProfiiQus/SmartFP-Snippets"
       },
     "publisher": "PavelFesenko",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "icon": "logo.png",
     "engines": {
         "vscode": "^1.64.0"
