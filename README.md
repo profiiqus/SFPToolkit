@@ -22,7 +22,15 @@ VS Code extension, created to simplify development of SmartFP documents. Primari
 
 ## Control snippets
 
-`In progress`
+- `checkbox` - Generates a new CheckBoxControl
+- `textbox` - Generates a new TextBox
+- `textbox-databind` - Generates a new TextBox with dependecy DataBind
+- `textarea` - Generates a new TextAreaControl
+- `richtextbox` - Generates a new RichTextBoxControl
+- `richtextbox-toolbar` - Generates a new RichTextBoxControl with pre-defined ToolBarSet
+- `radiobuttonlist` - Generates a new RadioButtonListControl
+- `autocomplete` - Generates a new AutoComplete with DataBind
+- `dropdown` - Generates a new DropDownListControl
 
 ## Column snippets
 
