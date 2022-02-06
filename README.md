@@ -26,3 +26,9 @@ VS Code extension, created to simplify development of SmartFP documents. Primari
 - `col-id` - Generates a new ID Column
 - `col-badge` - Generates a new coloured Badge Column
 - `col-workflow` - Generates a new WorkFlow Column
+
+## Parameter snippets
+
+- `param-user` - Inserts a User constant parameter
+- `param-val` - Generates a value parameter
+- `param-var` - Generates a variable parameter

@@ -1,0 +1,26 @@
+{
+	"Generates a User Constant Parameter": {
+		"prefix": "param-user",
+		"body": [
+		  "<dsp:Parameter xsi:type=\"dsp:VariableParameter\" Ident=\"UserID\" DataType=\"Number\" ConstantType=\"UserID\" />",
+		  "$0"
+		],
+		"description": "Generates a User Constant Parameter"
+	},
+	"Generates a Variable Parameter": {
+		"prefix": "param-var",
+		"body": [
+		  "<dsp:Parameter xsi:type=\"dsp:VariableParameter\" Ident=\"$1\" DataType=\"${2|String,Number,Bool|}\" />",
+		  "$0"
+		],
+		"description": "Generates a Variable Parameter"
+	},
+	"Generates a Value Parameter": {
+		"prefix": "param-val",
+		"body": [
+		  "<dsp:Parameter xsi:type=\"dsp:ValueParameter\" Ident=\"$1\" DataType=\"${2|String,Number,Bool|}\" Value=\"$3\" />",
+		  "$0"
+		],
+		"description": "Generates a Value Parameter"
+	}
+}
