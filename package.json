@@ -3,7 +3,7 @@
     "displayName": "SmartFP Configurator",
     "description": "Collection of useful tools, created to accelerate the configuration of SmartFP",
     "publisher": "PavelFesenko",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "icon": "logo.png",
     "repository": {
         "type": "git",
@@ -32,6 +32,10 @@
             {
                 "language": "xml",
                 "path": "./snippets/documents.json"
+            },
+            {
+                "language": "xml",
+                "path": "./snippets/others.json"
             },
             {
                 "language": "xml",
