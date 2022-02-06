@@ -6,6 +6,7 @@
         "type": "git",
         "url": "https://github.com/ProfiiQus/SmartFP-Snippets"
       },
+    "publisher": "PavelFesenko",
     "version": "1.0.0",
     "engines": {
         "vscode": "^1.64.0"
