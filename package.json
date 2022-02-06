@@ -8,6 +8,7 @@
       },
     "publisher": "PavelFesenko",
     "version": "1.0.0",
+    "icon": "logo.png",
     "engines": {
         "vscode": "^1.64.0"
     },
@@ -19,7 +20,7 @@
             {
                 "language": "xml",
                 "path": "./snippets/columns.json"
-            },
+            },  
             {
                 "language": "xml",
                 "path": "./snippets/controls.json"
