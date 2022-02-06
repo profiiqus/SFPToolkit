@@ -12,6 +12,14 @@ VS Code extension, created to simplify development of SmartFP documents. Primari
 - `report` - Generates a new Report
 - `dashboard` - Generates a new Dashboard
 
+## Dependency snippets
+
+- `xsd` - Inserts a XSD dependency
+- `xsi` - Inserts a XSI dependency
+- `dsp` - Inserts a DSP dependency
+- `wffc` - Inserts a WFFC dependency
+- `fcs` - Inserts a FCS dependency
+
 ## Column snippets
 
 - `col` - Generates a new, simple Column

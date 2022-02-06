@@ -1,0 +1,37 @@
+{
+	"Inserts XSD dependency": {
+		"prefix": "xsd",
+		"body": [
+		  "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\""
+		],
+		"description": "Inserts a XSD Schema"
+	},
+	"Inserts XSI dependency": {
+		"prefix": "xsi",
+		"body": [
+		  "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""
+		],
+		"description": "Inserts XSI dependency"
+	},
+	"Inserts DSP dependency": {
+		"prefix": "dsp",
+		"body": [
+		  "xmlns:dsp=\"http://www.gappex.com/sfp/DataSource/Parameters\""
+		],
+		"description": "Inserts DSP dependency"
+	},
+	"Inserts WFFC dependency": {
+		"prefix": "wffc",
+		"body": [
+		  "xmlns:wffc=\"http://www.gappex.com/sfp/WorkFlow/FormControl\""
+		],
+		"description": "Inserts WFFC dependency"
+	},
+	"Inserts FCS dependency": {
+		"prefix": "fcs",
+		"body": [
+		  "xmlns:fcs=\"http://www.gappex.com/sfp/Form/Control/Settings\""
+		],
+		"description": "Inserts FCS dependency"
+	}
+}
