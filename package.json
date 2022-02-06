@@ -17,7 +17,7 @@
             },
             {
                 "language": "xml",
-                "path": "./snippets/files.json"
+                "path": "./snippets/documents.json"
             }
         ]
     }
