@@ -1,0 +1,13 @@
+{
+	"Generates a Form-Group element": {
+		"prefix": "form-group",
+		"body": [
+		  "<div class=\"form-group\">",
+		  "    <ControlLabel ControlID=\"$1\" />",
+		  "    <Control ID=\"$1\" />",
+		  "</div>",
+		  "$0"
+		],
+		"description": "Generates a Form-Group element"
+	  }
+}

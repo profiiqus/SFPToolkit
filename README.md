@@ -39,6 +39,4 @@ VS Code extension, created to simplify development of SmartFP documents. Primari
 
 ## Other snippets
 
-Snippets that do not fit into the other categories.
-
-`In progress`
+- `form-group` - Generates a Form-Group element (div) with control and label
