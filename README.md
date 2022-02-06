@@ -20,6 +20,10 @@ VS Code extension, created to simplify development of SmartFP documents. Primari
 - `wffc` - Inserts a WFFC dependency
 - `fcs` - Inserts a FCS dependency
 
+## Control snippets
+
+`In progress`
+
 ## Column snippets
 
 - `col` - Generates a new, simple Column
@@ -32,3 +36,9 @@ VS Code extension, created to simplify development of SmartFP documents. Primari
 - `param-user` - Inserts a User constant parameter
 - `param-val` - Generates a value parameter
 - `param-var` - Generates a variable parameter
+
+## Other snippets
+
+Snippets that do not fit into the other categories.
+
+`In progress`
