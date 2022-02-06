@@ -1,14 +1,14 @@
 {
-    "name": "sfpsnippets",
-    "displayName": "SFPSnippets",
-    "description": "SmartFP development code snippets",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ProfiiQus/SmartFP-Snippets"
-      },
+    "name": "sfpconfigurator",
+    "displayName": "SmartFP Configurator",
+    "description": "Collections of tools for configuration of SmartFP",
     "publisher": "PavelFesenko",
     "version": "1.0.1",
     "icon": "logo.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ProfiiQus/SmartFP-Configurator"
+      },
     "engines": {
         "vscode": "^1.64.0"
     },
