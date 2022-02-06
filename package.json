@@ -2,7 +2,11 @@
     "name": "sfpsnippets",
     "displayName": "SFPSnippets",
     "description": "SmartFP development code snippets",
-    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/microsoft/vscode-wordcount.git"
+      },
+    "version": "1.0.0",
     "engines": {
         "vscode": "^1.64.0"
     },
