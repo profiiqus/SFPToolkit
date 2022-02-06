@@ -1,6 +1,6 @@
 # SmartFP Snippets ![VS Code version](https://img.shields.io/badge/VS%20Code-1.64.0%2B-blue?style=flat-square)
 
-VS Code extension, created to simplify development of SmartFP documents. Primarily contains a set of pre-defined code snippets, that assist with a new control or form creation.
+`SmartFP Configuration` is a VS Code extension, created to simplify and accelerate the configuration of the [SmartFP](https://smartfp.cz) system. Currently hosts a handful of code-snippets, that help the users to write the code faster.
 
 ## Document snippets
 

@@ -1,9 +1,9 @@
 {
     "name": "sfpconfigurator",
     "displayName": "SmartFP Configurator",
-    "description": "Collections of tools for configuration of SmartFP",
+    "description": "Collection of useful tools, created to accelerate the configuration of SmartFP",
     "publisher": "PavelFesenko",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "icon": "logo.png",
     "repository": {
         "type": "git",
