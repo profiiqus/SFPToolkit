@@ -11,3 +11,10 @@ VS Code extension, created to simplify development of SmartFP documents. Primari
 - `filter` - Generates a new Filter
 - `report` - Generates a new Report
 - `dashboard` - Generates a new Dashboard
+
+## Column snippets
+
+- `col` - Generates a new, simple Column
+- `col-id` - Generates a new ID Column
+- `col-badge` - Generates a new coloured Badge Column
+- `col-workflow` - Generates a new WorkFlow Column

@@ -1,0 +1,34 @@
+{
+	"Generates an ID Column": {
+		"prefix": "col-id",
+		"body": [
+		  "<Column Ident=\"ID\" TitleResourceKey=\"ID\" IsPrimaryKey=\"true\" Width=\"$1\" IsVisible=\"${2|true,false|}\" IsDefaultSort=\"${3|true,false|}\" SortType=\"${4|ASC,DESC|}\" />",
+			"$0"
+		],
+		"description": "Generates an ID Column"
+	  },
+	  "Generates a Column": {
+		"prefix": "col",
+		"body": [
+		  "<Column Ident=\"$1\" TitleResourceKey=\"$1_$2\" Width=\"$3\" />",
+		  "$0"
+		],
+		"description": "Generates a Column"
+	  },
+	  "Generates a Badge column": {
+		"prefix": "col-badge",
+		"body": [
+		  "<Column xsi:type=\"BadgeColumn\" Ident=\"$1\" ColorCssClassColumnIdent=\"$1Color\" TitleResourceKey=\"$1_$2\" IsTranslate=\"${3|true,false|}\" Width=\"$4\" />",
+		  "$0"
+		],
+		"description": "Generates a Badge column"
+	  },
+	  "Generates a WorkFlow badge column": {
+		"prefix": "col-workflow",
+		"body": [
+		  "<Column xsi:type=\"WorkFlowStateColumn\" Ident=\"$1\" FormIdent=\"$2\" TitleResourceKey=\"$1_$3\" IsColor=\"${4|true,false|}\" Width=\"$5\"/>",
+		  "$0"
+		],
+		"description": "Generates a WorkFlow badge column"
+	  }
+}
