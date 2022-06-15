@@ -1,0 +1,46 @@
+{
+    "DataBind": {
+        "prefix": "databind",
+        "body": [
+          "<DataBind>",
+          "    <Columns>",
+          "        <Column Ident=\"${1:Ident}\" DataBindType=\"${2|Value,Title,Selected|}\" />",
+          "        <Column Ident=\"${3:Ident}\" DataBindType=\"${4|Value,Title,Selected|}\" />",
+          "    </Columns>",
+          "    <SQL>",
+          "        SELECT $1, $3",
+          "        FROM ${5|dbo,usr|}.${6:table}",
+          "        WHERE State != @State",
+          "    </SQL>",
+          "    <Parameters>",
+          "        <dsp:Parameter xsi:type=\"dsp:ValueParameter\" Ident=\"State\" DataType=\"Number\" Value=\"0\" />",
+          "    </Parameters>",
+          "</DataBind>"
+        ],
+        "description": "DataBind"
+      },
+      "DataSource": {
+        "prefix": "datasource",
+        "body": [
+          "<DataSource FormIdent=\"${1:FormIdent}\">",
+          "    <Columns>",
+          "        <Column Ident=\"${1:Ident}\" TitleResourceKey=\"$1_${2:Segment}\" IsPrimaryKey=\"true\" Width=\"${3:Width}\" IsVisible=\"${4:true,false}\"></Column>",
+          "        <Column Ident=\"${5:Ident}\" TitleResourceKey=\"$5_$2\" Width=\"${6:Width}\" ></Column>",
+          "    </Columns>",
+          "    <SQL>",
+          "        SELECT $1, $5",
+          "        FROM ${7|dbo,usr|}.$1",
+          "        WHERE [State] != @State",
+          "    </SQL>",
+          "    <Parameters>",
+          "        <dsp:Parameter xsi:type=\"dsp:ValueParameter\" Ident=\"State\" DataType=\"Number\" Value=\"0\" />",
+          "    </Parameters>",
+          "</DataSource>"
+        ],
+        "description": "DataSource"
+      }
+
+
+
+    
+}

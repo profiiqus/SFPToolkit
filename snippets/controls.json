@@ -1,142 +1,288 @@
 {
-	"Generates a new TextBox": {
-		"prefix": "textbox",
-		"body": [
-		  "<Control xsi:type=\"TextBoxControl\" Ident=\"$1\" DataType=\"${2|String,Number,Bool|}\" IsVisible=\"${3|true,false|}\" IsReadOnly=\"${4|false,true|}\" TitleResourceKey=\"$1_$5\" />",
-		  "$0"
-		],
-		"description": "Generates a new TextBox"
-	},
-	"Generates a new TextBox with DataBind": {
-		"prefix": "textbox-databind",
-		"body": [
-		  "<Control xsi:type=\"TextBoxControl\" Ident=\"$1\" DataType=\"${2|String,Number,Bool|}\" IsVisible=\"${3|true,false|}\" IsReadOnly=\"${4|false,true|}\" TitleResourceKey=\"$1_$5\" >",
-		  "    <DataBind>",
-		  "        <Dependencies>",
-		  "            <string>Dependency</string>",
-		  "        </Dependencies>",
-		  "        <Columns>",
-		  "            <!-- TODO -->",
-		  "            $0",
-		  "        </Columns>",
-		  "        <SQL>",
-		  "            <!-- TODO -->",
-		  "        </SQL>",
-		  "        <Parameters>",
-		  "            <!-- TODO -->",
-		  "        </Parameters>",
-		  "    </DataBind>",
-		  "</Control>"
-		],
-		"description": "Generates a new TextBox with DataBind"
-	},
-	"Generates a new TextAreaControl": {
-		"prefix": "textarea",
-		"body": [
-		  "<Control xsi:type=\"TextAreaControl\" Ident=\"$1\" DataType=\"String\" Rows=\"$2\" TitleResourceKey=\"$1_$3\"/>",
-		  "$0"
-		],
-		"description": "Generates a new TextAreaControl"
-	},
-	"Generates a new RichTextBoxControl": {
-		"prefix": "richtextbox",
-		"body": [
-		  "<Control xsi:type=\"RichTextBoxControl\" Ident=\"$1\" Height=\"${2:350}\" DataType=\"String\" IsVisible=\"${3|true,false|}\" IsReadOnly=\"${4|false,true|}\" TitleResourceKey=\"$1_$5\" />",
-		  "$0"
-		],
-		"description": "Generates a new RichTextBoxControl"
-	},
-	"Generates a new RichTextBoxControl with defined ToolBarSet": {
-		"prefix": "richtextbox-toolbar",
-		"body": [
-		  "<!-- https://ckeditor.com/latest/samples/toolbarconfigurator/index.html#basic -->",
-		  "<Control xsi:type=\"RichTextBoxControl\" Ident=\"$1\" Height=\"${2:350}\" DataType=\"String\" IsVisible=\"${3|true,false|}\" IsReadOnly=\"${4|false,true|}\" IsFileManager=\"${5|false,true|}\" TitleResourceKey=\"$1_$6\" >",
-		  "    <ToolBarSet>",
-		  "        [",
-		  "            { name: 'document', groups: ['mode', 'document', 'doctools'], items: ['Source', '-', 'NewPage'] },",
-		  "            { name: 'clipboard', groups: ['clipboard', 'undo'], items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },",
-		  "            { name: 'editing', groups: ['find', 'selection', 'spellchecker'], items: ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'] },",
-		  "            { name: 'basicstyles', groups: ['basicstyles', 'cleanup'], items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },",
-		  "            { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi'], items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'] },",
-		  "            { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },",
-		  "            { name: 'insert', items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'] },",
-		  "            { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },",
-		  "            { name: 'colors', items: ['TextColor', 'BGColor'] },",
-		  "            { name: 'tools', items: ['Maximize', 'ShowBlocks'] },",
-		  "            { name: 'others', items: ['-'] }",
-		  "        ]",
-		  "    </ToolBarSet>",
-		  "</Control>",
-		  "$0"
-		],
-		"description": "Generates a new RichTextBoxControl with defined ToolBarSet"
-	},
-	"Generates a new RadioButtonListControl": {
-		"prefix": "radiobuttonlist",
-		"body": [
-		  "<Control xsi:type=\"RadioButtonListControl\" Ident=\"$1\" DataType=\"Number\" DisplayType=\"Inline\" TitleResourceKey=\"$1_$2\">",
-		  "    <ListItems>",
-		  "        <ListItem TitleResourceKey=\"_$2\" Value=\"1\" />",
-		  "        <ListItem TitleResourceKey=\"_$2\" Value=\"2\" />",
-		  "        <ListItem TitleResourceKey=\"_$2\" Value=\"3\" />",
-		  "    </ListItems>",
-		  "</Control>"
-		],
-		"description": "Generates a new RadioButtonListControl"
-	},
-	"Generates a new AutoCompleteControl": {
-		"prefix": "autocomplete",
-		"body": [
-		  "<Control xsi:type=\"AutoCompleteControl\" Ident=\"$1\" DataType=\"Number\" TitleResourceKey=\"$1_$2\" IsVisible=\"${3|true,false|}\" IsReadOnly=\"${4|false,true|}\" >",
-		  "    <DataBind DefaultTitleResourceKey=\"SelectValue\">",
-		  "        <Columns>",
-		  "            <Column Ident=\"ID\" TitleResourceKey=\"ID_$2\" DataBindType=\"Value\" />",
-		  "            <Column Ident=\"Title\" TitleResourceKey=\"Title_$2\" DataBindType=\"Title\" />",
-		  "        </Columns>",
-		  "        <SQL>",
-		  "            SELECT ID, FullName FROM dbo.Account WHERE FullName like @$1",
-		  "            $0",
-		  "        </SQL>",
-		  "        <Parameters>",
-		  "            <dsp:Parameter xsi:type=\"dsp:VariableParameter\" Ident=\"$1\" DataType=\"String\" LikeType=\"Both\" MaxLenght=\"200\" />",
-		  "        </Parameters>",
-		  "    </DataBind>",
-		  "    <SelectedDataBind>",
-		  "        <Columns>",
-		  "            <Column Ident=\"ID\" TitleResourceKey=\"ID_$2\" DataBindType=\"Value\" />",
-		  "            <Column Ident=\"Title\" TitleResourceKey=\"ID_$2\" DataBindType=\"Title\" />",
-		  "        </Columns>",
-		  "        <SQL>",
-		  "            SELECT ID, FullName FROM dbo.Account WHERE ID = @$1",
-		  "        </SQL>",
-		  "        <Parameters>",
-		  "            <dsp:Parameter xsi:type=\"dsp:VariableParameter\" Ident=\"$1\" DataType=\"Number\" />",
-		  "        </Parameters>",
-		  "    </SelectedDataBind>",
-		  "</Control>"
-		],
-		"description": "Generates a new AutoCompleteControl"
-	},
-	"Generates a new DropDownListControl": {
-		"prefix": "dropdown",
-		"body": [
-		  "<Control xsi:type=\"DropDownListControl\" Ident=\"$1\" DataType=\"Number\" TitleResourceKey=\"$1_$2\">",
-		  "    <ListItems>",
-		  "        <ListItem TitleResourceKey=\"$3_$2\" Value=\"1\" />",
-		  "        <ListItem TitleResourceKey=\"$4_$2\" Value=\"2\" />",
-		  "        <ListItem TitleResourceKey=\"$5_$2\" Value=\"3\" />",
-		  "    </ListItems>",
-		  "</Control>",
-		  "$0"
-		],
-		"description": "Generates a new DropDownListControl"
-	},
-	"Generates a new CheckBoxControl": {
-		"prefix": "checkbox",
-		"body": [
-		  "<Control xsi:type=\"CheckBoxControl\" Ident=\"$1\" DataType=\"Bool\" TitleResourceKey=\"$1_$2\" LabelPlacementType=\"${3|Left,Right|}\"/>",
-		  "$0"
-		],
-		"description": "Generates a new CheckBoxControl"
-	}
+  "TextBox": {
+    "prefix": "textbox",
+    "body": [
+      "<Control xsi:type=\"TextBoxControl\" Ident=\"${1:Ident}\" DataType=\"${2|String,Number,Bool,Date,DateTime|}\" TitleResourceKey=\"$1_${3:group}\"></Control>$0"
+    ],
+    "description": "TextBox"
+  },
+  "TextBox s ikonou": {
+    "prefix": "textbox-icon",
+    "body": [
+      "<Control xsi:type=\"TextBoxControl\" Ident=\"${1:Ident}\" DataType=\"${2|String,Number,Bool,Date,DateTime|}\" TitleResourceKey=\"$1_${3:name_group}\">",
+      "    <Settings>",
+      "        <fcs:Setting xsi:type=\"fcs:IconSetting\" IconCssClass=\"${4:Icon}\" Href=\"${5:href}\" TitleResourceKey=\"${6:name}_$3\"></fcs:Setting>",
+      "    </Settings>",
+      "</Control>$0"
+    ],
+    "description": "TextBox s ikonou"
+  },
+  "TextArea": {
+    "prefix": "textarea",
+    "body": [
+      "<Control xsi:type=\"TextAreaControl\" Ident=\"${1:Ident}\" DataType=\"String\" Rows=\"${2:rows}\" TitleResourceKey=\"$1_${3:group}\"/>$0"
+    ],
+    "description": "TextArea"
+  },
+  "RichTextBox": {
+    "prefix": "richtexbox",
+    "body": [
+      "<Control xsi:type=\"RichTextBoxControl\" Ident=\"${1:ident}\" Height=\"400\" DataType=\"String\" TitleResourceKey=\"$1_${2:group}\"></Control>$0"
+    ],
+    "description": "RichTextBox"
+  },
+  "RichTextBox s ToolBarem": {
+    "prefix": "richtexbox-toolbar",
+    "body": [
+      "<Control xsi:type=\"RichTextBoxControl\" Ident=\"${1:ident}\" Height=\"400\" DataType=\"String\" TitleResourceKey=\"$1_${2:group}\">",
+      "    <ToolBarSet>",
+      "        [",
+      "        <!-- Generator pro verze SFP < 6.0.0 -->",
+      "        <!-- https://ckeditor.com/latest/samples/toolbarconfigurator/index.html#basic -->",
+      "        <!-- Generator pro verze SFP >= 6.0.0 -->",
+      "        <!-- https://xdsoft.net/jodit/ -->",
+      "        ]",
+      "    </ToolBarSet>",
+      "</Control>$0"
+    ],
+    "description": "RichTextBox s ToolBarem"
+  },
+  "RadioButtonList s DataBind": {
+    "prefix": "radiobuttonlist",
+    "body": [
+      "<Control xsi:type=\"RadioButtonListControl\" Ident=\"${1:ident}\" DataType=\"Number\" DisplayType=\"${2|Inline,Block|}\" TitleResourceKey=\"${3:name_group}\">",
+      "<DataBind>",
+      "        <Columns>",
+      "            <Column Ident=\"${4:ident}\" DataBindType=\"${5|Value,Title|}\" ></Column>",
+      "            <Column Ident=\"${6:ident}\" DataBindType=\"${7|Value,Title|}\"></Column>",
+      "        </Columns>",
+      "        <SQL>",
+      "            SELECT $4,$6",
+      "            FROM ${8|dbo,usr|}.${9:table}",
+      "            WHERE State != 0 AND ${10:example}",
+      "        </SQL>",
+      "    </DataBind>",
+      "</Control>$0"
+    ],
+    "description": "RadioButtonList s DataBind"
+  },
+  "RadioButtonList": {
+    "prefix": "radiobuttonlist-items",
+    "body": [
+      "<Control xsi:type=\"RadioButtonListControl\" Ident=\"${1:ident}\" DataType=\"Number\" DisplayType=\"${2|Inline,Block|}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <ListItems>",
+      "        <ListItem TitleResourceKey=\"${4:name}_$3\" Value=\"${5:value}\" />",
+      "        <ListItem TitleResourceKey=\"${6:name}_$3\" Value=\"${7:value}\" />",
+      "        <ListItem TitleResourceKey=\"${8:name}_$3\" Value=\"${9:value}\" />",
+      "    </ListItems>",
+      "</Control>$0"
+    ],
+    "description": "RadioButtonList"
+  },
+  "AutoComplete": {
+    "prefix": "autocomplete",
+    "body": [
+      "<Control xsi:type=\"AutoCompleteControl\" Ident=\"${1:ident}\" DataType=\"Number\" TitleResourceKey=\"$1_${2:group}\">",
+      "    <DataBind DefaultTitleResourceKey=\"SelectValue\">",
+      "        <Columns>",
+      "            <Column Ident=\"${3:Ident}\" DataBindType=\"Value\"></Column>",
+      "            <Column Ident=\"${6:Ident}\" DataBindType=\"Title\"></Column>",
+      "        </Columns>",
+      "        <SQL>",
+      "            SELECT $3, $6",
+      "            FROM ${10|dbo,usr|}.${11:table}",
+      "            WHERE $6 like @$1",
+      "        </SQL>",
+      "        <Parameters>",
+      "            <dsp:Parameter xsi:type=\"dsp:VariableParameter\" Ident=\"$1\" DataType=\"String\" LikeType=\"Both\"></dsp:Parameter>",
+      "        </Parameters>",
+      "    </DataBind>",
+      "    <SelectedDataBind>",
+      "        <Columns>",
+      "            <Column Ident=\"$3\" DataBindType=\"$5\"></Column>",
+      "            <Column Ident=\"$6\" DataBindType=\"$7\"></Column>",
+      "        </Columns>",
+      "        <SQL>",
+      "            SELECT $3, $6",
+      "            FROM $10.$11",
+      "            WHERE $3 = $1",
+      "        </SQL>",
+      "        <Parameters>          ",
+      "            <dsp:Parameter xsi:type=\"dsp:VariableParameter\" Ident=\"$1\" DataType=\"Number\"></dsp:Parameter>           ",
+      "        </Parameters>     ",
+      "    </SelectedDataBind>",
+      "</Control>$0"
+    ],
+    "description": "AutoComplete"
+  },
+  "DropDownList": {
+    "prefix": "dropdownlist",
+    "body": [
+      "<Control xsi:type=\"DropDownListControl\" Ident=\"${1:ident}\" DataType=\"${2|String,Number|}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <ListItems>",
+      "        <ListItem TitleResourceKey=\"${4:name}_$3\" Value=\"${5:value}\" />",
+      "        <ListItem TitleResourceKey=\"${6:name}_$3\" Value=\"${7:value}\" />",
+      "        <ListItem TitleResourceKey=\"${8:name}_$3\" Value=\"${9:value}\" />",
+      "    </ListItems>",
+      "</Control>$0"
+    ],
+    "description": "DropDownList"
+  },
+  "DropDownList s DataBind": {
+    "prefix": "dropdownlist-databind",
+    "body": [
+      "<Control xsi:type=\"DropDownListControl\" Ident=\"${1:ident}\" DataType=\"${2|String,Number|}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <DataBind>",
+      "        <Columns>",
+      "            <Column Ident=\"${4:ident}\" DataBindType=\"${5|Value,Title,Selected|}\" ></Column>",
+      "            <Column Ident=\"${6:ident}\" DataBindType=\"${7|Value,Title,Selected|}\"></Column>",
+      "        </Columns>",
+      "        <SQL>",
+      "            SELECT $4,$6",
+      "            FROM ${8|dbo,usr|}.${9:table}",
+      "            WHERE State != 0 AND ${10:example}",
+      "        </SQL>",
+      "    </DataBind>",
+      "</Control>$0"
+    ],
+    "description": "DropDownList s DataBind"
+  },
+  "ListBox": {
+    "prefix": "listbox",
+    "body": [
+      "<Control xsi:type=\"ListBoxControl\" Ident=\"${1:ident}\" DataType=\"${2|NumberList, VarCharList, StringList|}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <ListItems>",
+      "        <ListItem TitleResourceKey=\\\"${4:name}_$3\\\" Value=\\\"${5:value}\\\" />",
+      "        <ListItem TitleResourceKey=\\\"${6:name}_$3\\\" Value=\\\"${7:value}\\\" />",
+      "        <ListItem TitleResourceKey=\\\"${8:name}_$3\\\" Value=\\\"${9:value}\\\" />",
+      "    </ListItems>",
+      "</Control>$0"
+    ],
+    "description": "ListBox"
+  },
+  "ListBox s DataBind": {
+    "prefix": "listbox-databind",
+    "body": [
+      "<Control xsi:type=\"ListBoxControl\" Ident=\"${1:ident}\" DataType=\"${2|NumberList, VarCharList, StringList|}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <DataBind>",
+      "        <Columns>",
+      "            <Column Ident=\"${4:ident}\" DataBindType=\"${5|Title,Value,Selected|}\" />",
+      "            <Column Ident=\"${6:ident}\" DataBindType=\"${7|Title,Value,Selected|}\" />",
+      "        </Columns>",
+      "        <SQL>",
+      "            SELECT $4, $6",
+      "            FROM ${8|dbo,usr|}.${9:table}",
+      "            WHERE State != 0",
+      "        </SQL>",
+      "    </DataBind>",
+      "</Control>$0"
+    ],
+    "description": "ListBox s DataBind"
+  },
+  "CheckBox": {
+    "prefix": "checkbox",
+    "body": [
+      "<Control xsi:type=\"CheckBoxControl\" Ident=\"${1:ident}\" DataType=\"Bool\" TitleResourceKey=\"$1_${2:group}\" LabelPlacementType=\"${3|Right,Left|}\"/>$0"
+    ],
+    "description": "CheckBox"
+  },
+  "CheckBoxList": {
+    "prefix": "checkboxlist",
+    "body": [
+      "<Control xsi:type=\"CheckBoxListControl\" Ident=\"${1:ident}\" DataType=\"${2|NumberList, VarCharList, StringList|}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <ListItems>",
+      "        <ListItem TitleResourceKey=\"${4:name}_$3\" Value=\"1\" />",
+      "        <ListItem TitleResourceKey=\"${5:name}_$3\" Value=\"2\" />",
+      "        <ListItem TitleResourceKey=\"${6:name}_$3\" Value=\"3\" />",
+      "    </ListItems>",
+      "</Control>$0"
+    ],
+    "description": "CheckBoxList"
+  },
+  "CheckBoxList s DataBind": {
+    "prefix": "checkboxlist-databind",
+    "body": [
+      "<Control xsi:type=\"CheckBoxListControl\" Ident=\"${1:ident}\" DataType=\"${2|NumberList, VarCharList, StringList|}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <DataBind>",
+      "        <Columns>",
+      "            <Column Ident=\"${4:ident}\" DataBindType=\"${5|Value,Title,Selected|}\" ></Column>",
+      "            <Column Ident=\"${6:ident}\" DataBindType=\"${7|Value,Title,Selected|}\" ></Column>",
+      "        </Columns>",
+      "        <SQL>",
+      "            SELECT $4, $6",
+      "            FROM ${8|dbo,usr|}.${9:table}",
+      "            WHERE State != 0",
+      "        </SQL>",
+      "    </DataBind>",
+      "</Control>$0"
+    ],
+    "description": "CheckBoxList s DataBind"
+  },
+  "Switch": {
+    "prefix": "switch",
+    "body": [
+      "<Control xsi:type=\"SwitchControl\" Ident=\"${1:ident}\" TitleResourceKey=\"$1_${2:group}\"/>$0"
+    ],
+    "description": "Switch"
+  },
+  "DualListBox": {
+    "prefix": "duallistbox",
+    "body": [
+      "<Control xsi:type=\"DualListBoxControl\" Ident=\"${1:ident}\" DataType=\"NumberList\" TitleResourceKey=\"$1_${2:group}\" NotSelectedTitleResourceKey=\"${3:title}_$2\" SelectedTitleResourceKey=\"${4:title}_$2\" HelpDescriptionResourceKey=\"${5:title}_$2\">",
+      "    <ListItems>",
+      "        <ListItem TitleResourceKey=\"${6:name}_$2\" Value=\"1\" />",
+      "        <ListItem TitleResourceKey=\"${7:name}_$2\" Value=\"2\" />",
+      "        <ListItem TitleResourceKey=\"${8:name}_$2\" Value=\"3\" />",
+      "    </ListItems>",
+      "</Control>$0"
+    ],
+    "description": "DualListBox"
+  },
+  "DualListBox s DataBind": {
+    "prefix": "duallistbox-databind",
+    "body": [
+      "<Control xsi:type=\"DualListBoxControl\" Ident=\"${1:ident}\" DataType=\"NumberList\" TitleResourceKey=\"$1_${2:group}\" NotSelectedTitleResourceKey=\"${3:title}_$2\" SelectedTitleResourceKey=\"${4:title}_$2\" HelpDescriptionResourceKey=\"${5:title}_$2\">",
+      "    <DataBind>",
+      "        <Columns>",
+      "            <Column Ident=\"${6:ident}\" DataBindType=\"${7|Value,Title,Selected|}\" ></Column>",
+      "            <Column Ident=\"${8:ident}\" DataBindType=\"${9|Value,Title,Selected|}\"></Column>",
+      "        </Columns>",
+      "        <SQL>",
+      "            SELECT $6, $8",
+      "            FROM ${10|dbo,usr|}.${11:table}",
+      "            WHERE State != 0",
+      "        </SQL>",
+      "    </DataBind>",
+      "</Control>$0"
+    ],
+    "description": "DualListBox s DataBind"
+  },
+  "Password": {
+    "prefix": "password",
+    "body": [
+      "<Control xsi:type=\"PasswordControl\" Ident=\"${1:ident}\" TitleResourceKey=\"$1_${2:group}\"></Control>$0"
+    ],
+    "description": "Password"
+  },
+  "Password s validací": {
+    "prefix": "password-validation",
+    "body": [
+      "<Control xsi:type=\"PasswordControl\" Ident=\"${1:ident}\" SecondControlIdent=\"${2:ident}\" TitleResourceKey=\"$1_${3:group}\">",
+      "    <Validations>",
+      "        <Validation xsi:type=\"CompareValidation\" Ident=\"CompareValidationPassword\" SecondControlIdent=\"$2\" ErrorMessageResourceKey=\"PasswordCompareValidaiton\" ></Validation>",
+      "        <Validation xsi:type=\"RegularExpressionValidation\" Ident=\"RegularExpressionValidationPassword\" Expression=\"\\S{6,50}\" ErrorMessageResourceKey=\"PasswordFormat\" ></Validation>",
+      "    </Validations>",
+      "</Control>",
+      "<Control xsi:type=\"PasswordControl\" Ident=\"$2\" TitleResourceKey=\"$2_$3\" IsCreateColumn=\"false\"></Control>$0"
+    ],
+    "description": "Password s validací"
+  },
+  "ToDoList": {
+    "prefix": "todolist",
+    "body": [
+      "<Control xsi:type=\"ToDoListControl\" Ident=\"${1:ident}\" TitleResourceKey=\"$1_${2:group}\"></Control>$0"
+    ],
+    "description": "ToDoList"
+  }
+
 }

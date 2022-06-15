@@ -27,11 +27,19 @@
             },
             {
                 "language": "xml",
+                "path": "./snippets/data.json"
+            },
+            {
+                "language": "xml",
                 "path": "./snippets/dependencies.json"
             },
             {
                 "language": "xml",
                 "path": "./snippets/documents.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
             },
             {
                 "language": "xml",
