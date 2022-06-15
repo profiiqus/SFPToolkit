@@ -23,14 +23,26 @@
 ## Control snippets
 
 - `checkbox` - Generates a new CheckBoxControl
+- `checkboxlist` - Generates a new CheckBoxListControl with fixed items
+- `checkboxlist-databind` - Generates a new CheckBoxListControl with Databind
+- `switch` - Generates a new SwitchControl
 - `textbox` - Generates a new TextBox
 - `textbox-databind` - Generates a new TextBox with dependecy DataBind
+- `textbox-icon` - Generates a new TextBox with icon
 - `textarea` - Generates a new TextAreaControl
 - `richtextbox` - Generates a new RichTextBoxControl
 - `richtextbox-toolbar` - Generates a new RichTextBoxControl with pre-defined ToolBarSet
-- `radiobuttonlist` - Generates a new RadioButtonListControl
+- `radiobuttonlist` - Generates a new RadioButtonListControl with Databind
+- `radiobuttonlist-items` - Generates a new RadioButtonListControl with fixed items
 - `autocomplete` - Generates a new AutoComplete with DataBind
-- `dropdown` - Generates a new DropDownListControl
+- `dropdownlist` - Generates a new DropDownListControl with fixed items
+- `dropdownlist-databind` - Generates a new DropDownListControl with Databind
+- `listbox` - Generates a new ListBox with fixed items
+- `listbox-databind` - Generates a new ListBox with Databind
+- `duallistbox` - Generates a new DualListBoxControl with fixed items
+- `duallistbox-databind` - Generates a new DualListBoxControl with Databind
+- `password` - Generates a new PasswordControl
+- `todolist` - Generates a new ToDoListControl
 
 ## Column snippets
 
@@ -47,4 +59,8 @@
 
 ## Other snippets
 
+- `databind` - Generates a new Databind
+- `datasource` - Generates a new DataSource
+- `html-row` - Generates a new HTML row
+- `html-form`, `html-form-group`, `html-group` - Generates a new HTML form-group with Control
 - `form-group` - Generates a Form-Group element (div) with control and label
