@@ -2,7 +2,8 @@
     "name": "sfptoolkit",
     "displayName": "SmartFP Toolkit",
     "description": "Toolkit for SmartFP Development acceleration",
-    "publisher": "PavelFesenko",
+    "author": "Pavel Fesenko",
+    "publisher": "pavelfesenko",
     "version": "2.0",
     "icon": "logo.png",
     "repository": {
