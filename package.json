@@ -1,13 +1,13 @@
 {
-    "name": "sfpconfigurator",
-    "displayName": "SmartFP Configurator",
-    "description": "Collection of useful tools, created to accelerate the configuration of SmartFP",
+    "name": "sfptoolkit",
+    "displayName": "SmartFP Toolkit",
+    "description": "Toolkit for SmartFP Development acceleration",
     "publisher": "PavelFesenko",
-    "version": "1.1.0",
+    "version": "2.0",
     "icon": "logo.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ProfiiQus/SmartFP-Configurator"
+        "url": "https://github.com/ProfiiQus/SFPToolkit"
       },
     "engines": {
         "vscode": "^1.64.0"
