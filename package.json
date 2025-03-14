@@ -8,19 +8,34 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/ProfiiQus/SmartFP-Configurator"
-      },
+    },
     "engines": {
         "vscode": "^1.64.0"
     },
     "categories": [
         "Snippets"
     ],
+    "activationEvents": [
+        "onLanguage:xml"
+    ],
+    "main": "./out/extension.js",
     "contributes": {
+        "languages": [
+            {
+                "id": "xml",
+                "extensions": [
+                    ".xml"
+                ],
+                "aliases": [
+                    "XML"
+                ]
+            }
+        ],
         "snippets": [
             {
                 "language": "xml",
                 "path": "./snippets/columns.json"
-            },  
+            },
             {
                 "language": "xml",
                 "path": "./snippets/controls.json"
@@ -50,5 +65,13 @@
                 "path": "./snippets/parameters.json"
             }
         ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./"
+    },
+    "devDependencies": {
+        "typescript": "^4.0.0",
+        "vscode": "^1.1.37"
     }
 }
