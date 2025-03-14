@@ -5,7 +5,7 @@ export class TitleParameterCheck extends BaseCheck {
     check(document: vscode.TextDocument): vscode.Diagnostic[] {
         const diagnostics: vscode.Diagnostic[] = [];
         const text = document.getText();
-        const titleParameterRegex = /Title=""/g;
+        const titleParameterRegex = /Title="[^"]*"/g;
         let match: RegExpExecArray | null;
 
         while ((match = titleParameterRegex.exec(text)) !== null) {

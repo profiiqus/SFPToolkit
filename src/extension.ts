@@ -1,5 +1,8 @@
 import * as vscode from 'vscode';
+
+// DPR
 import { TitleParameterCheck } from './checks/deprecation/titleParameterCheck';
+import { HardcodedDLLPathCheck } from './checks/deprecation/hardcodedDLLPathCheck';
 
 export function activate(context: vscode.ExtensionContext) {
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('xmlChecker');
@@ -26,7 +29,8 @@ export function activate(context: vscode.ExtensionContext) {
 
         const diagnostics: vscode.Diagnostic[] = [];
         const checks = [
-            new TitleParameterCheck()
+            new TitleParameterCheck(),
+            new HardcodedDLLPathCheck()
         ]; // Add new checks here
 
         for (const check of checks) {

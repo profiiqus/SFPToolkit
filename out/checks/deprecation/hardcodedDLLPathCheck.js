@@ -33,28 +33,33 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TitleParameterCheck = void 0;
+exports.HardcodedDLLPathCheck = void 0;
 const vscode = __importStar(require("vscode"));
 const baseCheck_1 = require("../baseCheck");
-class TitleParameterCheck extends baseCheck_1.BaseCheck {
+class HardcodedDLLPathCheck extends baseCheck_1.BaseCheck {
     check(document) {
         const diagnostics = [];
         const text = document.getText();
-        const titleParameterRegex = /Title="[^"]*"/g;
-        let match;
-        while ((match = titleParameterRegex.exec(text)) !== null) {
-            const startPos = document.positionAt(match.index);
-            const endPos = document.positionAt(match.index + match[0].length);
+        const rootElementRegex = /<(\w+)[\s>]/;
+        const match = rootElementRegex.exec(text);
+        if (!match)
+            return diagnostics; // No root element found
+        const rootElement = match[1];
+        if (rootElement === 'Configuration')
+            return diagnostics; // Skip if root element is Configuration
+        const parameterRegex = /(?:DLLPath|ClassType)="[^"]*"/g;
+        let paramMatch;
+        while ((paramMatch = parameterRegex.exec(text)) !== null) {
+            const startPos = document.positionAt(paramMatch.index);
+            const endPos = document.positionAt(paramMatch.index + paramMatch[0].length);
             const range = new vscode.Range(startPos, endPos);
-            const diagnostic = new vscode.Diagnostic(range, `The parameter 'Title' is deprecated and should be replaced with 'TitleResourceKey'.`, vscode.DiagnosticSeverity.Error);
-            const relatedInformation = new vscode.DiagnosticRelatedInformation(new vscode.Location(vscode.Uri.parse('https://github.com/profiiqus/SFPToolkit/blob/main/docs/diagnostics/DPR-001.md'), range), `GitHub Docs`);
+            const diagnostic = new vscode.Diagnostic(range, `This parameter should not be used outside of 'Configuration' elements. Please refactor the configuration to use 'DLLIdent'.`, vscode.DiagnosticSeverity.Error);
+            const relatedInformation = new vscode.DiagnosticRelatedInformation(new vscode.Location(vscode.Uri.parse('https://github.com/profiiqus/SFPToolkit/blob/main/docs/diagnostics/DPR-002.md'), range), `GitHub Docs`);
             diagnostic.relatedInformation = [relatedInformation];
-            diagnostic.code = 'DPR-001';
-            diagnostic.source = 'SmartFP Toolkit';
             diagnostics.push(diagnostic);
         }
         return diagnostics;
     }
 }
-exports.TitleParameterCheck = TitleParameterCheck;
-//# sourceMappingURL=titleParameterCheck.js.map
+exports.HardcodedDLLPathCheck = HardcodedDLLPathCheck;
+//# sourceMappingURL=hardcodedDLLPathCheck.js.map

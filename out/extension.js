@@ -36,9 +36,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.activate = activate;
 exports.deactivate = deactivate;
 const vscode = __importStar(require("vscode"));
+// DPR
 const titleParameterCheck_1 = require("./checks/deprecation/titleParameterCheck");
-const emailSubjectParameterCheck_1 = require("./checks/deprecation/emailSubjectParameterCheck");
-const emailBodyParameterCheck_1 = require("./checks/deprecation/emailBodyParameterCheck");
+const hardcodedDLLPathCheck_1 = require("./checks/deprecation/hardcodedDLLPathCheck");
 function activate(context) {
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('xmlChecker');
     vscode.workspace.onDidOpenTextDocument(checkDocument);
@@ -61,8 +61,7 @@ function activate(context) {
         const diagnostics = [];
         const checks = [
             new titleParameterCheck_1.TitleParameterCheck(),
-            new emailSubjectParameterCheck_1.EmailSubjectParameterCheck(),
-            new emailBodyParameterCheck_1.EmailBodyParameterCheck()
+            new hardcodedDLLPathCheck_1.HardcodedDLLPathCheck()
         ]; // Add new checks here
         for (const check of checks) {
             diagnostics.push(...check.check(document));
