@@ -33,35 +33,28 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HardcodedDLLPathCheck = void 0;
+exports.TitleResourceKeyEmptyCheck = void 0;
 const vscode = __importStar(require("vscode"));
 const baseCheck_1 = require("../baseCheck");
-class HardcodedDLLPathCheck extends baseCheck_1.BaseCheck {
+class TitleResourceKeyEmptyCheck extends baseCheck_1.BaseCheck {
     check(document) {
         const diagnostics = [];
         const text = document.getText();
-        const rootElementRegex = /<(\w+)[\s>]/;
-        const match = rootElementRegex.exec(text);
-        if (!match)
-            return diagnostics; // No root element found
-        const rootElement = match[1];
-        if (rootElement === 'Configuration')
-            return diagnostics; // Skip if root element is Configuration
-        const parameterRegex = /(?:DLLPath|ClassType)="[^"]*"/g;
-        let paramMatch;
-        while ((paramMatch = parameterRegex.exec(text)) !== null) {
-            const startPos = document.positionAt(paramMatch.index);
-            const endPos = document.positionAt(paramMatch.index + paramMatch[0].length);
+        const titleResourceKeyRegex = /TitleResourceKey=""/g;
+        let match;
+        while ((match = titleResourceKeyRegex.exec(text)) !== null) {
+            const startPos = document.positionAt(match.index);
+            const endPos = document.positionAt(match.index + match[0].length);
             const range = new vscode.Range(startPos, endPos);
-            const diagnostic = new vscode.Diagnostic(range, `This parameter should not be used outside of 'Configuration' elements. Please refactor the configuration to use 'DLLIdent'.`, vscode.DiagnosticSeverity.Error);
-            const relatedInformation = new vscode.DiagnosticRelatedInformation(new vscode.Location(vscode.Uri.parse('https://github.com/profiiqus/SFPToolkit/blob/main/docs/diagnostics/DPR-002.md'), range), `GitHub Docs`);
+            const diagnostic = new vscode.Diagnostic(range, `The parameter 'TitleResourceKey' is empty and should be assigned a value.`, vscode.DiagnosticSeverity.Warning);
+            const relatedInformation = new vscode.DiagnosticRelatedInformation(new vscode.Location(vscode.Uri.parse('https://github.com/profiiqus/SFPToolkit/blob/main/docs/diagnostics/CST-001.md'), range), `GitHub Docs`);
             diagnostic.relatedInformation = [relatedInformation];
-            diagnostic.code = 'DPR-002';
+            diagnostic.code = 'CST-001';
             diagnostic.source = 'SmartFP Toolkit';
             diagnostics.push(diagnostic);
         }
         return diagnostics;
     }
 }
-exports.HardcodedDLLPathCheck = HardcodedDLLPathCheck;
-//# sourceMappingURL=hardcodedDLLPathCheck.js.map
+exports.TitleResourceKeyEmptyCheck = TitleResourceKeyEmptyCheck;
+//# sourceMappingURL=titleResourceKeyEmptyCheck.js.map

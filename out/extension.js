@@ -39,6 +39,8 @@ const vscode = __importStar(require("vscode"));
 // DPR
 const titleParameterCheck_1 = require("./checks/deprecation/titleParameterCheck");
 const hardcodedDLLPathCheck_1 = require("./checks/deprecation/hardcodedDLLPathCheck");
+// CST
+const titleResourceKeyEmptyCheck_1 = require("./checks/consistency/titleResourceKeyEmptyCheck");
 function activate(context) {
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('xmlChecker');
     vscode.workspace.onDidOpenTextDocument(checkDocument);
@@ -61,7 +63,8 @@ function activate(context) {
         const diagnostics = [];
         const checks = [
             new titleParameterCheck_1.TitleParameterCheck(),
-            new hardcodedDLLPathCheck_1.HardcodedDLLPathCheck()
+            new hardcodedDLLPathCheck_1.HardcodedDLLPathCheck(),
+            new titleResourceKeyEmptyCheck_1.TitleResourceKeyEmptyCheck()
         ]; // Add new checks here
         for (const check of checks) {
             diagnostics.push(...check.check(document));

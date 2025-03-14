@@ -4,6 +4,9 @@ import * as vscode from 'vscode';
 import { TitleParameterCheck } from './checks/deprecation/titleParameterCheck';
 import { HardcodedDLLPathCheck } from './checks/deprecation/hardcodedDLLPathCheck';
 
+// CST
+import { TitleResourceKeyEmptyCheck } from './checks/consistency/titleResourceKeyEmptyCheck';
+
 export function activate(context: vscode.ExtensionContext) {
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('xmlChecker');
 
@@ -30,7 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
         const diagnostics: vscode.Diagnostic[] = [];
         const checks = [
             new TitleParameterCheck(),
-            new HardcodedDLLPathCheck()
+            new HardcodedDLLPathCheck(),
+            new TitleResourceKeyEmptyCheck()
         ]; // Add new checks here
 
         for (const check of checks) {
