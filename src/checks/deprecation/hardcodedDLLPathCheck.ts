@@ -33,6 +33,8 @@ export class HardcodedDLLPathCheck extends BaseCheck {
             );
 
             diagnostic.relatedInformation = [relatedInformation];
+            diagnostic.code = 'DPR-002';
+            diagnostic.source = 'SmartFP Toolkit';
             diagnostics.push(diagnostic);
         }
 
