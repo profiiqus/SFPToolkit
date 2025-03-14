@@ -1,13 +1,17 @@
 {
-    "name": "sfpconfigurator",
-    "displayName": "SmartFP Configurator",
-    "description": "Collection of useful tools, created to accelerate the configuration of SmartFP",
-    "publisher": "PavelFesenko",
-    "version": "1.1.0",
+    "name": "sfptoolkit",
+    "displayName": "SmartFP Toolkit",
+    "description": "Visual Studio Code extension for SmartFP Configuration development",
+    "publisher": "pavelfesenko",
+    "author": {
+        "name": "Pavel Fesenko",
+        "email": "pavel.fesenko@outlook.com"
+    },
+    "version": "2.0.0",
     "icon": "logo.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ProfiiQus/SmartFP-Configurator"
+        "url": "https://github.com/profiiqus/SFPToolkit"
     },
     "engines": {
         "vscode": "^1.64.0"

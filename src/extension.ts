@@ -1,7 +1,5 @@
 import * as vscode from 'vscode';
 import { TitleParameterCheck } from './checks/deprecation/titleParameterCheck';
-import { EmailSubjectParameterCheck } from './checks/deprecation/emailSubjectParameterCheck';
-import { EmailBodyParameterCheck } from './checks/deprecation/emailBodyParameterCheck';
 
 export function activate(context: vscode.ExtensionContext) {
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('xmlChecker');
@@ -28,9 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         const diagnostics: vscode.Diagnostic[] = [];
         const checks = [
-            new TitleParameterCheck(),
-            new EmailSubjectParameterCheck(),
-            new EmailBodyParameterCheck()
+            new TitleParameterCheck()
         ]; // Add new checks here
 
         for (const check of checks) {
