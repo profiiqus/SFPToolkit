@@ -23,7 +23,7 @@ export class HardcodedDLLPathCheck extends BaseCheck {
 
             const diagnostic = new vscode.Diagnostic(
                 range,
-                `This parameter should not be used outside of 'Configuration' elements. Please refactor the configuration to use 'DLLIdent'.`,
+                `DPR-002: This parameter should not be used outside of 'Configuration' elements. Please refactor the configuration to use 'DLLIdent'.`,
                 vscode.DiagnosticSeverity.Error
             );
 

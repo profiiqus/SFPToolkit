@@ -15,7 +15,7 @@ export class TitleParameterCheck extends BaseCheck {
 
             const diagnostic = new vscode.Diagnostic(
                 range,
-                `The parameter 'Title' is deprecated and should be replaced with 'TitleResourceKey'.`,
+                `DPR-001: The parameter 'Title' is deprecated and should be replaced with 'TitleResourceKey'.`,
                 vscode.DiagnosticSeverity.Error
             );
 

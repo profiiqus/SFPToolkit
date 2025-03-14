@@ -6,6 +6,10 @@ import { HardcodedDLLPathCheck } from './checks/deprecation/hardcodedDLLPathChec
 
 // CST
 import { TitleResourceKeyEmptyCheck } from './checks/consistency/titleResourceKeyEmptyCheck';
+import { FileNameIdentConsistencyCheck } from './checks/consistency/fileNameIdentConsistencyCheck';
+import { FileNameRootElementCheck } from './checks/consistency/fileNameRootElementCheck';
+import { SubFormIdentCheck } from './checks/consistency/subFormIdentCheck';
+import { MainFormIdentCheck } from './checks/consistency/mainFormIdentCheck';
 
 export function activate(context: vscode.ExtensionContext) {
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('xmlChecker');
@@ -34,7 +38,11 @@ export function activate(context: vscode.ExtensionContext) {
         const checks = [
             new TitleParameterCheck(),
             new HardcodedDLLPathCheck(),
-            new TitleResourceKeyEmptyCheck()
+            new TitleResourceKeyEmptyCheck(),
+            new FileNameIdentConsistencyCheck(),
+            new FileNameRootElementCheck(),
+            new SubFormIdentCheck(),
+            new MainFormIdentCheck()
         ]; // Add new checks here
 
         for (const check of checks) {
